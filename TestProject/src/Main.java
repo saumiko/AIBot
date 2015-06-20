@@ -65,6 +65,11 @@ public class Main implements KeyListener,MouseListener
             Window w=screen.getFullScreenWindow();
             w.addKeyListener(this);
             w.addMouseListener(this);
+            Toolkit toolkit = Toolkit.getDefaultToolkit(); 
+             Image image = toolkit.getImage("Ab.gif"); 
+             Point hotSpot = new Point(0,0); 
+             Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "Ab");
+             w.setCursor(cursor); 
             while(GameRunning==true){
                 
                 Graphics2D g3 = screen.getGraphics();
