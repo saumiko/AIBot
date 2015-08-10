@@ -4,6 +4,9 @@ import javax.swing.*;
 
 public class Main implements MouseListener, KeyListener, Runnable
 {
+    Sword sword;
+    Sword2 sword2;
+    
     public static Graphics2D g;
     static public ScreenManager s;
     static public Window w;
@@ -40,7 +43,7 @@ public class Main implements MouseListener, KeyListener, Runnable
         play = new ImageIcon("Files/Images/Menu/Play.png").getImage();
         onePlayer = new ImageIcon("Files/Images/Menu/1p.png").getImage();
         twoPlayer = new ImageIcon("Files/Images/Menu/2p.png").getImage();
-        background= new ImageIcon("Files/Images/Play/Background.png").getImage(); 
+        background= new ImageIcon("Files/Images/Play/Background.png").getImage();
         knight1 = new ImageIcon("Files/Images/Play/K1org.png").getImage();
         knight2 = new ImageIcon("Files/Images/Play/K2org.png").getImage();
         s = new ScreenManager();
@@ -137,6 +140,7 @@ public class Main implements MouseListener, KeyListener, Runnable
         {
             if(keyPlay)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyPlay=false;
@@ -146,6 +150,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyHelp)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyPlay=false;
@@ -155,6 +160,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyAbout)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyPlay=false;
@@ -164,6 +170,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyExit)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyHelp=false;
@@ -173,11 +180,13 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             if(keyOnePlayer)
             {
+                sword2 = new Sword2();
                 keyOnePlayer=false;
                 keyTwoPlayer=true;
             }
             else if(keyTwoPlayer)
             {
+                sword2 = new Sword2();
                 keyTwoPlayer=false;
                 keyOnePlayer=true;
             }
@@ -187,6 +196,7 @@ public class Main implements MouseListener, KeyListener, Runnable
         {
             if(keyPlay)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyPlay=false;
@@ -196,6 +206,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyHelp)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyAbout=false;
@@ -205,6 +216,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyAbout)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyPlay=false;
@@ -214,6 +226,7 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             else if(keyExit)
             {
+                sword2 = new Sword2();
                 //keyOnePlayer=false;
                 //keyTwoPlayer=false;
                 keyHelp=false;
@@ -223,11 +236,13 @@ public class Main implements MouseListener, KeyListener, Runnable
             }
             if(keyOnePlayer)
             {
+                sword2 = new Sword2();
                 keyOnePlayer=false;
                 keyTwoPlayer=true;
             }
             else if(keyTwoPlayer)
             {
+                sword2 = new Sword2();
                 keyTwoPlayer=false;
                 keyOnePlayer=true;
             }
@@ -236,11 +251,18 @@ public class Main implements MouseListener, KeyListener, Runnable
         if(e.getKeyCode()==KeyEvent.VK_ENTER)
         {
             if(keyOnePlayer)
+            {
+                sword = new Sword();
                 oneP=true;
+            }
             else if(keyTwoPlayer)
+            {
+                sword = new Sword();
                 twoP=true;
+            }
             if(keyPlay)
             {
+                sword = new Sword();
                 keyOnePlayer = true;
                 keyTwoPlayer = false;
                 Play = true;
@@ -250,7 +272,10 @@ public class Main implements MouseListener, KeyListener, Runnable
             else if(keyAbout)
                 About=true;
             else if(keyExit)
+            {
+                sword = new Sword();
                 Exit=true;
+            }
         }
     }
     
