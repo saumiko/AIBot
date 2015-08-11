@@ -33,7 +33,9 @@ public class Main implements MouseListener, KeyListener, Runnable
         Main main = new Main();
         main.run();
     }
-    
+    /**
+     * This method initializes everything
+     */
     public void init()
     {
         open = new ImageIcon("Files/Images/Menu/Open.png").getImage();
