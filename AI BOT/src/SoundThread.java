@@ -36,7 +36,7 @@ public class SoundThread implements Runnable
                  Clip clip = AudioSystem.getClip();
                  clip.open(audioInputStream);
                  clip.start();
-                 if(clip.isOpen()==false)
+                 while(clip.isOpen())
                      clip.loop(5);
             }
             catch(Exception ex){}

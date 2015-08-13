@@ -30,7 +30,7 @@ public class Sword implements Runnable
     {
             try 
             {
-                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Files/Sound/Sowrd.wav").getAbsoluteFile());
+                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Files/Sound/Sword.wav").getAbsoluteFile());
                  Clip clip = AudioSystem.getClip();
                  clip.open(audioInputStream);
                  clip.start();
