@@ -13,7 +13,7 @@ public class Main implements MouseListener, KeyListener, Runnable
     
     static SoundThread bsound = new SoundThread(); 
     
-    static public Image open, play, help, about, exit, onePlayer, twoPlayer, background, knight1, knight2;
+    static public Image open, play, help, about, exit, onePlayer, twoPlayer, background, knight1, knight2, attack1, attack2, defence1, defence2;
     
     static public boolean keyPlay = true, keyHelp = false, keyAbout=false, keyExit=false, keyOnePlayer = false, keyTwoPlayer=false;
     
@@ -45,9 +45,13 @@ public class Main implements MouseListener, KeyListener, Runnable
         play = new ImageIcon("Files/Images/Menu/Play.png").getImage();
         onePlayer = new ImageIcon("Files/Images/Menu/1p.png").getImage();
         twoPlayer = new ImageIcon("Files/Images/Menu/2p.png").getImage();
-        background= new ImageIcon("Files/Images/Play/Background.png").getImage();
-        knight1 = new ImageIcon("Files/Images/Play/K1org.png").getImage();
-        knight2 = new ImageIcon("Files/Images/Play/K2org.png").getImage();
+        background= new ImageIcon("Files/Images/Char/Background.png").getImage();
+        knight1 = new ImageIcon("Files/Images/Char/Knight1.png").getImage();
+        knight2 = new ImageIcon("Files/Images/Char/Knight2.png").getImage();
+        attack1 = new ImageIcon("Files/Images/Char/Attack1.png").getImage();
+        attack2 = new ImageIcon("Files/Images/Char/Attack2.png").getImage();
+        defence1 = new ImageIcon("Files/Images/Char/Defence1.png").getImage();
+        defence2 = new ImageIcon("Files/Images/Char/Defence2.png").getImage();
         s = new ScreenManager();
     }
     
@@ -129,8 +133,8 @@ public class Main implements MouseListener, KeyListener, Runnable
             X1+=50;
             X2-=50;
         }
-        g1.drawImage(knight2,X1,250,55,53,null);
-        g1.drawImage(knight1,X2,250,55,53,null);
+        g1.drawImage(defence1,X1,250,55,53,null);
+        g1.drawImage(defence2,X2,250,55,53,null);
     }
     
     public void keyPressed(KeyEvent e) 
