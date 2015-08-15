@@ -15,7 +15,7 @@ public class Server extends JFrame
    
    public Server()
    {
-	   super("Saumiko Messenger");
+	   super("AI-BOT Messenger");
 	   userText = new JTextField();
 	   userText.setEditable(false);
 	   userText.addActionListener(
