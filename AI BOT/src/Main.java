@@ -158,7 +158,26 @@ public class Main implements MouseListener, KeyListener, Runnable
     {
         Menu = true;
         if(e.getKeyCode()==KeyEvent.VK_ESCAPE)
-            System.exit(0);
+        {
+            //System.exit(0);
+            Play = false;
+            oneP = false; 
+            twoP = false; 
+            Server = false; 
+            Client = false;
+            keyHelp = false; 
+            keyAbout=false; 
+            keyExit=false; 
+            keyOnePlayer = false; 
+            keyTwoPlayer=false; 
+            keyServer = false; 
+            keyClient = false;
+            About = false;
+            Help = false;
+            keyPlay=true;
+            Exit = false;
+            Menu = true;
+        }
         if(e.getKeyCode()==KeyEvent.VK_DOWN)
         {
             if(keyPlay)
