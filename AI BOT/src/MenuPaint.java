@@ -28,4 +28,12 @@ public class MenuPaint extends Main
         else if(keyExit)
             g.drawImage(exit,0,0,null);
     }
+    
+    static void paintConnection(Graphics2D g)
+    {
+        if(keyServer)
+            g.drawImage(server,0,0,null);
+        else if(keyClient)
+            g.drawImage(client,0,0,null);
+    }
 }

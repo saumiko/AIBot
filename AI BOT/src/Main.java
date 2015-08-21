@@ -13,13 +13,13 @@ public class Main implements MouseListener, KeyListener, Runnable
     
     static SoundThread bsound = new SoundThread(); 
     
-    static public Image open, play, help, about, exit, onePlayer, twoPlayer, background, knight1, knight2, attack1, attack2, defence1, defence2;
+    static public Image open, play, help, about, exit, onePlayer, twoPlayer, background, knight1, knight2, attack1, attack2, defence1, defence2, server, client;
     
-    static public boolean keyPlay = true, keyHelp = false, keyAbout=false, keyExit=false, keyOnePlayer = false, keyTwoPlayer=false;
+    static public boolean keyPlay = true, keyHelp = false, keyAbout=false, keyExit=false, keyOnePlayer = false, keyTwoPlayer=false, keyServer = false, keyClient = false;
     
     static public boolean About = false, Help = false, Exit = false, Menu = false, Open = true;
     
-    static public boolean Play = false, oneP = false, twoP = false;
+    static public boolean Play = false, oneP = false, twoP = false, Server = false, Client = false;
     
     int X1=98,X2=650;
     
@@ -52,6 +52,8 @@ public class Main implements MouseListener, KeyListener, Runnable
         attack2 = new ImageIcon("Files/Images/Char/Attack2.png").getImage();
         defence1 = new ImageIcon("Files/Images/Char/Defence1.png").getImage();
         defence2 = new ImageIcon("Files/Images/Char/Defence2.png").getImage();
+        client = new ImageIcon("Files/Images/Menu/Client.png").getImage();
+        server = new ImageIcon("Files/Images/Menu/Server.png").getImage();
         s = new ScreenManager();
     }
     
@@ -94,7 +96,7 @@ public class Main implements MouseListener, KeyListener, Runnable
                                 MenuPaint.paintPlayer(g);
                                 s.update();
                                 g.dispose();
-                                while(oneP)
+                                /*while(oneP)
                                 {
                                     g = s.getGraphics();
                                     paintPlay(g);
@@ -105,13 +107,28 @@ public class Main implements MouseListener, KeyListener, Runnable
                                         Thread.sleep(500);
                                     }
                                     catch(Exception e){}
-                                }
-                                /*
+                                }*/
                                 while(twoP)
                                 {
-                                    //game
+                                    g = s.getGraphics();
+                                    MenuPaint.paintConnection(g);
+                                    s.update();
+                                    g.dispose();
+                                    while(Server)
+                                    {
+                                        {
+                                            g = s.getGraphics();
+                                            paintPlay(g);
+                                            s.update();
+                                            g.dispose();
+                                            try
+                                            {
+                                                Thread.sleep(500);
+                                            }
+                                            catch(Exception e){}
+                                        }
+                                    }
                                 }
-                                */
                             }
                         }
                     }
@@ -196,6 +213,18 @@ public class Main implements MouseListener, KeyListener, Runnable
                 keyTwoPlayer=false;
                 keyOnePlayer=true;
             }
+            if(keyServer)
+            {
+                sword2 = new Sword2();
+                keyServer=false;
+                keyClient=true;
+            }
+            else if(keyClient)
+            {
+                sword2 = new Sword2();
+                keyClient=false;
+                keyServer=true;
+            }
         }
         
         if(e.getKeyCode()==KeyEvent.VK_UP)
@@ -252,10 +281,32 @@ public class Main implements MouseListener, KeyListener, Runnable
                 keyTwoPlayer=false;
                 keyOnePlayer=true;
             }
+            if(keyServer)
+            {
+                sword2 = new Sword2();
+                keyServer=false;
+                keyClient=true;
+            }
+            else if(keyClient)
+            {
+                sword2 = new Sword2();
+                keyClient=false;
+                keyServer=true;
+            }
             
         }
         if(e.getKeyCode()==KeyEvent.VK_ENTER)
         {
+            if(keyServer)
+            {
+                sword = new Sword();
+                Server = true;
+            }
+            else if(keyClient)
+            {
+                sword = new Sword();
+                Client = true;
+            }
             if(keyOnePlayer)
             {
                 sword = new Sword();
@@ -264,6 +315,8 @@ public class Main implements MouseListener, KeyListener, Runnable
             else if(keyTwoPlayer)
             {
                 sword = new Sword();
+                keyServer = true;
+                keyClient=false;
                 twoP=true;
             }
             if(keyPlay)
@@ -274,9 +327,15 @@ public class Main implements MouseListener, KeyListener, Runnable
                 Play = true;
             }
             else if(keyHelp)
-                Help=true;
+            {
+                sword = new Sword();
+                Help = true;
+            }
             else if(keyAbout)
-                About=true;
+            {
+                sword = new Sword();
+                About = true;
+            }
             else if(keyExit)
             {
                 sword = new Sword();
